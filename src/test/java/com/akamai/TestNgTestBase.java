@@ -2,8 +2,8 @@ package com.akamai;
 
 import java.io.IOException;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.WebDriver;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -14,6 +14,7 @@ import ru.stqa.selenium.factory.WebDriverPool;
 import com.akamai.util.PropertyLoader;
 
 /**
+ * Initial boilerplate based on @see https://github.com/barancev/webdriver-testng-archetype
  * Base class for TestNG-based test classes
  */
 public class TestNgTestBase {

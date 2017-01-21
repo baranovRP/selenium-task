@@ -1,11 +1,11 @@
 package com.akamai.util;
 
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
+
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
  * Initial boilerplate based on @see https://github.com/barancev/webdriver-testng-archetype
