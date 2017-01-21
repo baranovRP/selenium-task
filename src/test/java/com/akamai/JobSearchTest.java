@@ -25,22 +25,33 @@ public class JobSearchTest extends TestNgTestBase {
     homePage = PageFactory.initElements(driver, JobSearch.class);
   }
 
-  @Test
-  public void testJobSearch() {
-    homePage.open(baseUrl);
-
-    SearchResults searchResults =
-      homePage.searchPanel().searchFor("test", "Krakow");
-    int numberOfResults = parseInt(searchResults.getNumberOfResults().trim());
-    assertThat(numberOfResults).isEqualTo(11);
-
-    List<String> roles =
-      searchResults.getRoleTitlesContains("Software Development Engineer in Test");
-    assertThat(roles).hasSize(4);
-
-    VacancyContent vacancy =
-      searchResults.openFirstVacancyByTitle("Senior Software Development Engineer in Test - LUNA");
-    LocalDate postDate = parseToDate(vacancy.getPostDate().trim());
-    assertThat(postDate).isEqualTo(parseToDate("Dec 06, 2016"));
+  @Test(dataProvider = "jobSearch", dataProviderClass = DataProviderSource.class)
+  public void testJobSearch(String keyword, String loc,
+                            int total, String title,
+                            int matched, String vacancy, String date) {
+    openPage(baseUrl);
+    searchJob(keyword, loc, total, title, matched);
+    openVacancy(vacancy, date);
   }
+
+  private void openPage(String url) {
+    homePage.open(url);
+  }
+
+  private void searchJob(String keyword, String location,
+                         int total, String jobTitle, int matched) {
+    SearchResults searchResults = homePage.searchPanel().searchFor(keyword, location);
+    int numberOfResults = parseInt(searchResults.getNumberOfResults().trim());
+    List<String> roles = searchResults.getRoleTitlesContains(jobTitle);
+
+    assertThat(numberOfResults).isEqualTo(total);
+    assertThat(roles).hasSize(matched);
+  }
+
+  private void openVacancy(String jobTitle, String date) {
+    VacancyContent vacancy = homePage.searchResults().openFirstVacancyByTitle(jobTitle);
+    LocalDate postDate = parseToDate(vacancy.getPostDate().trim());
+    assertThat(postDate).isEqualTo(parseToDate(date));
+  }
+
 }
