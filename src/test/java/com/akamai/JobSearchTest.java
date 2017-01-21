@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.akamai.components.SearchResults;
+import com.akamai.model.testdata.SearchData;
+import com.akamai.model.testdata.VacancyData;
 import com.akamai.pages.JobSearch;
 import com.akamai.pages.VacancyContent;
 
@@ -26,32 +28,31 @@ public class JobSearchTest extends TestNgTestBase {
   }
 
   @Test(dataProvider = "jobSearch", dataProviderClass = DataProviderSource.class)
-  public void testJobSearch(String keyword, String loc,
-                            int total, String title,
-                            int matched, String vacancy, String date) {
+  public void testJobSearch(SearchData searchData, VacancyData vacancyData) {
     openPage(baseUrl);
-    searchJob(keyword, loc, total, title, matched);
-    openVacancy(vacancy, date);
+    searchJob(searchData);
+    openVacancy(vacancyData);
   }
 
   private void openPage(String url) {
     homePage.open(url);
   }
 
-  private void searchJob(String keyword, String location,
-                         int total, String jobTitle, int matched) {
-    SearchResults searchResults = homePage.searchPanel().searchFor(keyword, location);
-    int numberOfResults = parseInt(searchResults.getNumberOfResults().trim());
-    List<String> roles = searchResults.getRoleTitlesContains(jobTitle);
+  private void searchJob(SearchData searchData) {
+    SearchResults results = homePage.searchPanel()
+      .searchFor(searchData.getKeyword(), searchData.getLocation());
+    int totalResults = parseInt(results.getNumberOfResults().trim());
+    List<String> roles = results.getRoleTitlesContains(searchData.getTitle());
 
-    assertThat(numberOfResults).isEqualTo(total);
-    assertThat(roles).hasSize(matched);
+    assertThat(totalResults).isEqualTo(searchData.getTotalResults());
+    assertThat(roles).hasSize(searchData.getMatchedResults());
   }
 
-  private void openVacancy(String jobTitle, String date) {
-    VacancyContent vacancy = homePage.searchResults().openFirstVacancyByTitle(jobTitle);
+  private void openVacancy(VacancyData vacancyData) {
+    VacancyContent vacancy = homePage.searchResults()
+      .openFirstVacancyByTitle(vacancyData.getTitle());
     LocalDate postDate = parseToDate(vacancy.getPostDate().trim());
-    assertThat(postDate).isEqualTo(parseToDate(date));
+    assertThat(postDate).isEqualTo(vacancyData.getPostDate());
   }
 
 }
