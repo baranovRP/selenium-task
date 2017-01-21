@@ -4,7 +4,7 @@
 ### Pre-requisite:
 please install and setup the next artifacts:
 
- * [JDK 1.8.^](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (tested on 1.8.102)
+ * [JDK 1.8.^](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (tested on 1.8.121)
  * [Apache Maven 3.3.^](https://maven.apache.org/download.cgi) (tested on 3.3.9)
  * [Google Chrome](https://www.google.com/chrome/browser/desktop/), browser (tested on v.55.0.2883.87 (64-bit))
  * [ChromeDriver 2.27](https://sites.google.com/a/chromium.org/chromedriver/downloads), depends on used chrome browser
