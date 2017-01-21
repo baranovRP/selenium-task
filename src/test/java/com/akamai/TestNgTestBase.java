@@ -11,8 +11,7 @@ import org.testng.annotations.BeforeSuite;
 
 import ru.stqa.selenium.factory.WebDriverPool;
 
-import com.akamai.util.PropertyLoader;
-
+import static com.akamai.util.PropertyLoader.loadCapabilities;
 import static com.akamai.util.PropertyLoader.loadProperty;
 import static java.lang.Long.parseLong;
 
@@ -38,7 +37,7 @@ public class TestNgTestBase {
     if ("".equals(gridHubUrl)) {
       gridHubUrl = null;
     }
-    capabilities = PropertyLoader.loadCapabilities();
+    capabilities = loadCapabilities();
   }
 
   @BeforeMethod
