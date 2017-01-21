@@ -30,4 +30,8 @@ public class JobSearch extends Page {
     return searchResults;
   }
 
+  public JobSearch open(String baseUrl) {
+    driver.get(baseUrl);
+    return this;
+  }
 }
