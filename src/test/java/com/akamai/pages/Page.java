@@ -7,6 +7,8 @@ import static com.akamai.TestNgTestBase.timeOutInSec;
 
 /**
  * Abstract class representation of a Page in the UI. Page object pattern
+ *
+ * @author baranov.r.p
  */
 public abstract class Page {
 
