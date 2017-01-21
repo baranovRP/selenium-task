@@ -12,7 +12,7 @@ import com.akamai.components.SearchResults;
 import com.akamai.pages.JobSearch;
 import com.akamai.pages.VacancyContent;
 
-import static com.akamai.util.Util.parseToDate;
+import static com.akamai.util.DateTimeUtils.parseToDate;
 import static java.lang.Integer.parseInt;
 import static org.assertj.core.api.Assertions.assertThat;
 
