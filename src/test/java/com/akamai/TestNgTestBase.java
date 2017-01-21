@@ -13,11 +13,16 @@ import ru.stqa.selenium.factory.WebDriverPool;
 
 import com.akamai.util.PropertyLoader;
 
+import static com.akamai.util.PropertyLoader.loadProperty;
+import static java.lang.Long.parseLong;
+
 /**
  * Initial boilerplate based on @see https://github.com/barancev/webdriver-testng-archetype
  * Base class for TestNG-based test classes
  */
 public class TestNgTestBase {
+
+  public static long timeOutInSec;
 
   protected static String gridHubUrl;
   protected static String baseUrl;
@@ -27,8 +32,9 @@ public class TestNgTestBase {
 
   @BeforeSuite
   public void initTestSuite() throws IOException {
-    baseUrl = PropertyLoader.loadProperty("site.url");
-    gridHubUrl = PropertyLoader.loadProperty("grid.url");
+    baseUrl = loadProperty("site.url");
+    gridHubUrl = loadProperty("grid.url");
+    timeOutInSec = parseLong(loadProperty("timeout.in.sec"));
     if ("".equals(gridHubUrl)) {
       gridHubUrl = null;
     }
