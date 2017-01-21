@@ -21,13 +21,17 @@ import static java.lang.Long.parseLong;
  */
 public class TestNgTestBase {
 
-  public static long timeOutInSec;
+  protected static long timeOutInSec;
 
   protected static String gridHubUrl;
   protected static String baseUrl;
   protected static Capabilities capabilities;
 
   protected WebDriver driver;
+
+  public static long getTimeOutInSec() {
+    return timeOutInSec;
+  }
 
   @BeforeSuite
   public void initTestSuite() throws IOException {
