@@ -15,17 +15,25 @@ public class PropertyLoader {
 
   private static final String DEBUG_PROPERTIES = "/debug.properties";
 
-  public static Capabilities loadCapabilities() throws IOException {
+  public static Capabilities loadCapabilities() {
     return loadCapabilities(System.getProperty("application.properties", DEBUG_PROPERTIES));
   }
 
-  public static Capabilities loadCapabilities(String fromResource) throws IOException {
+  public static Capabilities loadCapabilities(String fromResource) {
     Properties props = new Properties();
-    props.load(PropertyLoader.class.getResourceAsStream(fromResource));
+    try {
+      props.load(PropertyLoader.class.getResourceAsStream(fromResource));
+    } catch (IOException e) {
+      throw new RuntimeException("Can't find a resource with a name " + fromResource, e);
+    }
     String capabilitiesFile = props.getProperty("capabilities");
 
     Properties capsProps = new Properties();
-    capsProps.load(PropertyLoader.class.getResourceAsStream(capabilitiesFile));
+    try {
+      capsProps.load(PropertyLoader.class.getResourceAsStream(capabilitiesFile));
+    } catch (IOException e) {
+      throw new RuntimeException("Can't find a resource with a name " + capabilitiesFile, e);
+    }
 
     DesiredCapabilities capabilities = new DesiredCapabilities();
     for (String name : capsProps.stringPropertyNames()) {
@@ -33,8 +41,12 @@ public class PropertyLoader {
       if (value.toLowerCase().equals("true") || value.toLowerCase().equals("false")) {
         capabilities.setCapability(name, Boolean.valueOf(value));
       } else if (value.startsWith("file:")) {
-        capabilities.setCapability(name, new File(".", value.substring(5))
-          .getCanonicalFile().getAbsolutePath());
+        try {
+          capabilities.setCapability(name,
+            new File(".", value.substring(5)).getCanonicalFile().getAbsolutePath());
+        } catch (IOException e) {
+          throw new RuntimeException("Can't return the canonical form of pathname for " + value, e);
+        }
       } else {
         capabilities.setCapability(name, value);
       }
