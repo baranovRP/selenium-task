@@ -17,6 +17,7 @@ import static java.lang.Long.parseLong;
 
 /**
  * Initial boilerplate based on @see https://github.com/barancev/webdriver-testng-archetype
+ * with additions from baranov.r.p
  * Base class for TestNG-based test classes
  */
 public class TestNgTestBase {
