@@ -9,8 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.akamai.components.SearchResults;
-import com.akamai.model.testdata.SearchData;
-import com.akamai.model.testdata.VacancyData;
+import com.akamai.models.testdata.SearchData;
+import com.akamai.models.testdata.VacancyData;
 import com.akamai.pages.JobSearch;
 import com.akamai.pages.VacancyContent;
 

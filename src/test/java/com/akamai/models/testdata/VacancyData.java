@@ -1,4 +1,4 @@
-package com.akamai.model.testdata;
+package com.akamai.models.testdata;
 
 import java.time.LocalDate;
 import java.util.Objects;

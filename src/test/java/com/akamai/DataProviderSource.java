@@ -2,8 +2,8 @@ package com.akamai;
 
 import org.testng.annotations.DataProvider;
 
-import com.akamai.model.testdata.SearchData;
-import com.akamai.model.testdata.VacancyData;
+import com.akamai.models.testdata.SearchData;
+import com.akamai.models.testdata.VacancyData;
 
 import static com.akamai.util.DateTimeUtils.parseToDate;
 
