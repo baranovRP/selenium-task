@@ -1,7 +1,6 @@
 package com.akamai.util;
 
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
@@ -9,6 +8,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
+ * Initial boilerplate based on @see https://github.com/barancev/webdriver-testng-archetype
  * Class that extracts properties from the prop file.
  */
 public class PropertyLoader {
@@ -33,7 +33,8 @@ public class PropertyLoader {
       if (value.toLowerCase().equals("true") || value.toLowerCase().equals("false")) {
         capabilities.setCapability(name, Boolean.valueOf(value));
       } else if (value.startsWith("file:")) {
-        capabilities.setCapability(name, new File(".", value.substring(5)).getCanonicalFile().getAbsolutePath());
+        capabilities.setCapability(name, new File(".", value.substring(5))
+          .getCanonicalFile().getAbsolutePath());
       } else {
         capabilities.setCapability(name, value);
       }
@@ -52,5 +53,4 @@ public class PropertyLoader {
 
     return props.getProperty(name);
   }
-
 }
