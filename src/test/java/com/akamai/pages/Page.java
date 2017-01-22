@@ -25,5 +25,4 @@ public abstract class Page {
     this.wait = new WebDriverWait(driver, getTimeOutInSec());
     driver.manage().window().maximize();
   }
-
 }

@@ -54,5 +54,4 @@ public class JobSearchTest extends TestNgTestBase {
     LocalDate postDate = parseToDate(vacancy.getPostDate().trim());
     assertThat(postDate).isEqualTo(vacancyData.getPostDate());
   }
-
 }
