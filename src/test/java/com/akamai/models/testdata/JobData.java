@@ -6,9 +6,12 @@ import java.util.Objects;
 import static com.akamai.util.DateTimeUtils.parseToDate;
 
 /**
+ * Model of test data for job description page. Used with DataProvider.
+ *
  * @author baranov.r.p
  */
 public class JobData {
+
   private String title;
   private LocalDate postDate;
 

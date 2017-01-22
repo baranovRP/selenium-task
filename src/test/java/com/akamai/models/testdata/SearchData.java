@@ -3,9 +3,12 @@ package com.akamai.models.testdata;
 import java.util.Objects;
 
 /**
+ * Model of test data for search jobs page. Used with DataProvider.
+ *
  * @author baranov.r.p
  */
 public class SearchData {
+
   private String keyword;
   private String location;
   private int totalResults;
