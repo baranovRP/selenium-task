@@ -20,7 +20,7 @@ please install and setup the next artifacts:
 `mvn clean test -P chrome,localhost,nogrid -Dwebdriver.chrome.driver={path_to_chromedriver}`
 5. Don't have a possibility to test Safari browser but have hope, that for running tests with Safari browser and ```apple's safaridriver``` (Safari's driver is launchable via the /usr/bin/safaridriver executable) perform next command: 
 `mvn clean test -P safari,localhost,nogrid -Dwebdriver.safari.driver={path_to_safaridriver}` (not tested)
-6. You can find the test's report with result in ```{basedir}/target/surefire-reports/testng-results.xml```
+6. You can find the test's report with result in ```{basedir}/target/surefire-reports/index.html```
 
 ### Notes:
  * Tested under Windows 10 (chrome, firefox)
