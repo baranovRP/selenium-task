@@ -23,7 +23,8 @@ please install and setup the next artifacts:
 6. You can find the test's report with result in ```{basedir}/target/surefire-reports/testng-results.xml```
 
 ### Notes:
- * Tested under Windows 10
+ * Tested under Windows 10 (chrome, firefox)
+ * Tested under Linux 4.8.13-1-ARCH (firefox)
  * Not tested with browsers: edge, opera, safari
  * For IE browser, except IEDriverServer, required to set compatibility driver settings
    and probably make some changes on test environment (e.g. modify registry), depends on version of Windows OS
