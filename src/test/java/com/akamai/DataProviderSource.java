@@ -6,7 +6,7 @@ import com.akamai.models.testdata.SearchData;
 import com.akamai.models.testdata.JobData;
 
 /**
- * DataProvider for parameterizing of test data.
+ * DataProvider for parameterizing tests with set of test date.
  *
  * @author baranov.r.p
  */
