@@ -9,6 +9,6 @@ import java.time.format.DateTimeFormatter;
 public final class DateTimeUtils {
 
   public static LocalDate parseToDate(String text) {
-    return LocalDate.parse(text, DateTimeFormatter.ofPattern("MMM dd, yyyy"));
+    return LocalDate.parse(text, DateTimeFormatter.ofPattern("MMM dd, uuuu"));
   }
 }
