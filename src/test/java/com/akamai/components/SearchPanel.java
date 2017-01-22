@@ -28,7 +28,6 @@ public class SearchPanel extends Page {
 
   private static final String SEARCH_BTN = SEARCH_BANNER + " .search_btn";
 
-
   public SearchPanel(WebDriver webDriver) {
     super(webDriver);
   }

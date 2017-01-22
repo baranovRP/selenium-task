@@ -20,7 +20,6 @@ public class JobDescription extends Page {
   private static final String CONTENT = ".full_content";
   private static final String POST_DATE = CONTENT + " .job_post_date .field_value";
 
-
   public JobDescription(WebDriver webDriver) {
     super(webDriver);
   }

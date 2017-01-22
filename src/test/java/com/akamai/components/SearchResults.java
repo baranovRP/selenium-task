@@ -33,7 +33,6 @@ public class SearchResults extends Page {
   private static final String NUMBER_OF_RESULTS = CONTENT + " .total_results";
   private static final String ALL_ELS = CONTENT + " .full_content .job_list_row";
 
-
   public SearchResults(WebDriver webDriver) {
     super(webDriver);
   }
