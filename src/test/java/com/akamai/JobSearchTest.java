@@ -31,7 +31,7 @@ public class JobSearchTest extends TestNgTestBase {
   public void testJobSearch(SearchData searchData, JobData jobData) {
     openPage(baseUrl);
     searchJob(searchData);
-    openVacancy(jobData);
+    openJobDescription(jobData);
   }
 
   private void openPage(String url) {
@@ -48,7 +48,7 @@ public class JobSearchTest extends TestNgTestBase {
     assertThat(jobTitles).hasSize(searchData.getMatchedResults());
   }
 
-  private void openVacancy(JobData jobData) {
+  private void openJobDescription(JobData jobData) {
     JobDescription vacancy = homePage.searchResults()
       .openFirstJobByTitle(jobData.getTitle());
     LocalDate postDate = parseToDate(vacancy.getPostDate().trim());
