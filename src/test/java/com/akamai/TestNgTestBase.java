@@ -16,9 +16,10 @@ import static com.akamai.util.PropertyLoader.loadProperty;
 import static java.lang.Long.parseLong;
 
 /**
- * Initial boilerplate based on @see https://github.com/barancev/webdriver-testng-archetype
- * with additions from baranov.r.p
- * Base class for TestNG-based test classes
+ * Base class for TestNG-based test classes with initial setup, tearUp, tearDown.
+ * Based on @see https://github.com/barancev/webdriver-testng-archetype
+ *
+ * @author baranov.r.p
  */
 public class TestNgTestBase {
 
