@@ -36,7 +36,7 @@ public class SearchPanel extends Page {
   /**
    * Search by specified conditions.
    *
-   * @param keyword  any (e.g. job title)
+   * @param keyword  any (e.g. job title, category)
    * @param location place to work (city, country)
    * @return SearchResults component, with results
    */
@@ -47,7 +47,7 @@ public class SearchPanel extends Page {
   /**
    * Clear input field and insert any keyword.
    *
-   * @param text any keyword (e.g. job title)
+   * @param text any keyword (e.g. job title, category)
    * @return SearchPanel component
    */
   public SearchPanel insertKeyword(String text) {
