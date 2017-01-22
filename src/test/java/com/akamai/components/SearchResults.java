@@ -27,7 +27,7 @@ public class SearchResults extends Page {
   private static final int FIRST_EL = 0;
 
   /**
-   * CSS selectors for UI elements
+   * CSS selectors for UI elements.
    */
   private static final String CONTENT = "#portal_content";
   private static final String NUMBER_OF_RESULTS = CONTENT + " .total_results";
@@ -39,7 +39,7 @@ public class SearchResults extends Page {
   }
 
   /**
-   * Find total results
+   * Find total results.
    *
    * @return number
    */
@@ -48,7 +48,7 @@ public class SearchResults extends Page {
   }
 
   /**
-   * Find all Job's WebElements on Page
+   * Find all Job's WebElements on Page.
    *
    * @return list of WebElements
    */
@@ -57,7 +57,7 @@ public class SearchResults extends Page {
   }
 
   /**
-   * Find Job's titles that contain provided text
+   * Find Job's titles that contain provided text.
    *
    * @param text that expected to be present in title
    * @return list of titles
@@ -70,24 +70,38 @@ public class SearchResults extends Page {
   }
 
   /**
-   * Open a job content by provided link's text
+   * Open a job description by provided link's text.
+   *
    * @param text in link
-   * @return
+   * @return description of job
    */
   public JobDescription openJobByLinkText(String text) {
     wait.until(elementToBeClickable(linkText(text))).click();
     return new JobDescription(driver);
   }
 
+  /**
+   * Open job description of first matched title.
+   *
+   * @param text job title
+   * @return description of job
+   */
   public JobDescription openFirstJobByTitle(String text) {
     return openJobByTitle(text, FIRST_EL);
   }
 
-  public JobDescription openJobByTitle(String text, int order) {
+  /**
+   * Open job description of matched title by provided index of matched result.
+   *
+   * @param text  job title
+   * @param index of matched job
+   * @return description of job
+   */
+  public JobDescription openJobByTitle(String text, int index) {
     WebElement linkEl = findAllJobElsOnPage().stream()
       .map(el -> el.findElement(cssSelector("a")))
       .filter(el -> el.getText().trim().toLowerCase().contains(text.toLowerCase()))
-      .collect(Collectors.toList()).get(order);
+      .collect(Collectors.toList()).get(index);
     wait.until(elementToBeClickable(linkEl)).click();
     return new JobDescription(driver);
   }
