@@ -34,8 +34,9 @@ public class SearchPanel extends Page {
   }
 
   /**
-   * Search by specified conditions
-   * @param keyword any (e.g. job title)
+   * Search by specified conditions.
+   *
+   * @param keyword  any (e.g. job title)
    * @param location place to work (city, country)
    * @return SearchResults component, with results
    */
@@ -44,7 +45,8 @@ public class SearchPanel extends Page {
   }
 
   /**
-   * Insert keyword
+   * Clear input field and insert any keyword.
+   *
    * @param text any keyword (e.g. job title)
    * @return SearchPanel component
    */
@@ -55,7 +57,9 @@ public class SearchPanel extends Page {
   }
 
   /**
-   * Insert location
+   * Insert location is done by clicking on input, inserting text
+   * and clicking on highlighted location according to inserted text.
+   *
    * @param text any place to work (city, country)
    * @return SearchPanel component
    */
@@ -68,7 +72,8 @@ public class SearchPanel extends Page {
   }
 
   /**
-   * Do search by clicking on <b>Search</b> button
+   * Do search by clicking on <b>Search</b> button.
+   *
    * @return SearchResults component, with results
    */
   public SearchResults doSearch() {
