@@ -15,10 +15,10 @@ public abstract class Page {
   protected WebDriver driver;
   protected WebDriverWait wait;
 
-  /*
+  /**
    * Constructor injecting the WebDriver interface
    *
-   * @param webDriver
+   * @param driver Webdriver
    */
   public Page(WebDriver driver) {
     this.driver = driver;

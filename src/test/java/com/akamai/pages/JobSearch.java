@@ -17,7 +17,11 @@ public class JobSearch extends Page {
   private final SearchPanel searchPanel;
   private final SearchResults searchResults;
 
-
+  /**
+   * Constructor registering components on the page.
+   *
+   * @param webDriver
+   */
   public JobSearch(WebDriver webDriver) {
     super(webDriver);
     this.searchPanel = new SearchPanel(webDriver);
@@ -25,18 +29,18 @@ public class JobSearch extends Page {
   }
 
   /**
-   * Register <b>Search Panel</b> component on Home page.
+   * Getter of <b>Search Panel</b> component on Home page.
    *
-   * @return
+   * @return Search Panel
    */
   public SearchPanel searchPanel() {
     return searchPanel;
   }
 
   /**
-   * Register <b>Search Results</b> component on Home page.
+   * Getter of <b>Search Results</b> component on Home page.
    *
-   * @return
+   * @return Search Results
    */
   public SearchResults searchResults() {
     return searchResults;
