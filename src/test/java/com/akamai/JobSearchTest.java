@@ -34,13 +34,25 @@ public class JobSearchTest extends TestNgTestBase {
     openJobDescription(jobData);
   }
 
+  /**
+   * Step open page.
+   *
+   * @param url to open
+   */
   private void openPage(String url) {
     homePage.open(url);
   }
 
+  /**
+   * Step search jobs
+   *
+   * @param searchData test data
+   */
   private void searchJob(SearchData searchData) {
-    SearchResults results = homePage.searchPanel()
-      .searchFor(searchData.getKeyword(), searchData.getLocation());
+    String keyword = searchData.getKeyword();
+    String loc = searchData.getLocation();
+
+    SearchResults results = homePage.searchPanel().searchFor(keyword, loc);
     int totalResults = parseInt(results.findTotalResults().trim());
     List<String> jobTitles = results.findJobTitlesContains(searchData.getTitle());
 
@@ -48,10 +60,18 @@ public class JobSearchTest extends TestNgTestBase {
     assertThat(jobTitles).hasSize(searchData.getMatchedResults());
   }
 
+  /**
+   * Step open job description
+   *
+   * @param jobData test data
+   */
   private void openJobDescription(JobData jobData) {
-    JobDescription vacancy = homePage.searchResults()
-      .openFirstJobByTitle(jobData.getTitle());
+    String title = jobData.getTitle();
+    LocalDate date = jobData.getPostDate();
+
+    JobDescription vacancy = homePage.searchResults().openFirstJobByTitle(title);
     LocalDate postDate = parseToDate(vacancy.findPostDate().trim());
-    assertThat(postDate).isEqualTo(jobData.getPostDate());
+
+    assertThat(postDate).isEqualTo(date);
   }
 }
