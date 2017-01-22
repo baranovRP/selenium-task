@@ -15,7 +15,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 public class JobDescription extends Page {
 
   /**
-   * CSS selectors for UI elements
+   * CSS selectors for UI elements.
    */
   private static final String CONTENT = ".full_content";
   private static final String POST_DATE = CONTENT + " .job_post_date .field_value";
