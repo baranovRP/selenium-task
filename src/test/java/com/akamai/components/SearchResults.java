@@ -99,7 +99,7 @@ public class SearchResults extends Page {
   public JobDescription openJobByTitle(String text, int index) {
     WebElement linkEl = findAllJobElsOnPage().stream()
       .map(el -> el.findElement(cssSelector("a")))
-      .filter(el -> el.getText().trim().toLowerCase().contains(text.toLowerCase()))
+      .filter(el -> el.getText().trim().compareToIgnoreCase(text) == 0)
       .collect(Collectors.toList()).get(index);
     wait.until(elementToBeClickable(linkEl)).click();
     return new JobDescription(driver);
