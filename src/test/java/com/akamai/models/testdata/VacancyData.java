@@ -17,6 +17,11 @@ public class VacancyData {
     this.postDate = postDate;
   }
 
+  public VacancyData(String title, String date) {
+    this.title = title;
+    setPostDate(date);
+  }
+
   public String getTitle() {
     return title;
   }

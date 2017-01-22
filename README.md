@@ -13,11 +13,12 @@ please install and setup the next artifacts:
 
 ### Steps:
 1. [Clone or download](https://help.github.com/articles/cloning-a-repository/) current repository
-2. For launching tests with Firefox, perform next command: 
+2. Go to folder with ```pom.xml```
+3. For launching tests with Firefox, perform next command: 
 `mvn clean test -Dwebdriver.gecko.driver={path_to_geckodriver}`
-3. For running tests with Google Chrome browser perform next command: 
+4. For running tests with Google Chrome browser perform next command: 
 `mvn clean test -P chrome,localhost,nogrid -Dwebdriver.chrome.driver={path_to_chromedriver}`
-3. For running tests with Safari browser and ```apple's safaridriver``` (Safari's driver is launchable via the /usr/bin/safaridriver executable) perform next command: 
+5. For running tests with Safari browser and ```apple's safaridriver``` (Safari's driver is launchable via the /usr/bin/safaridriver executable) perform next command: 
 `mvn clean test -P safari,localhost,nogrid -Dwebdriver.safari.driver={path_to_safaridriver}` (not tested)
 
 ### Notes:
