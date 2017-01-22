@@ -38,14 +38,30 @@ public class SearchResults extends Page {
     super(webDriver);
   }
 
+  /**
+   * Find total results
+   *
+   * @return number
+   */
   public String findTotalResults() {
     return wait.until(visibilityOfElementLocated(cssSelector(NUMBER_OF_RESULTS))).getText();
   }
 
+  /**
+   * Find all Job's WebElements on Page
+   *
+   * @return list of WebElements
+   */
   public List<WebElement> findAllJobElsOnPage() {
     return wait.until(visibilityOfAllElementsLocatedBy(cssSelector(ALL_ELS)));
   }
 
+  /**
+   * Find Job's titles that contain provided text
+   *
+   * @param text that expected to be present in title
+   * @return list of titles
+   */
   public List<String> findJobTitlesContains(String text) {
     return findAllJobElsOnPage().stream()
       .map(el -> el.findElement(cssSelector("a")).getText().trim())
@@ -53,6 +69,11 @@ public class SearchResults extends Page {
       .collect(Collectors.toList());
   }
 
+  /**
+   * Open a job content by provided link's text
+   * @param text in link
+   * @return
+   */
   public VacancyContent openJobByLinkText(String text) {
     wait.until(elementToBeClickable(linkText(text))).click();
     return new VacancyContent(driver);
