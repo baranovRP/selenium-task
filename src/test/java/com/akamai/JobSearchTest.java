@@ -51,7 +51,7 @@ public class JobSearchTest extends TestNgTestBase {
   private void openJobDescription(JobData jobData) {
     JobDescription vacancy = homePage.searchResults()
       .openFirstJobByTitle(jobData.getTitle());
-    LocalDate postDate = parseToDate(vacancy.getPostDate().trim());
+    LocalDate postDate = parseToDate(vacancy.findPostDate().trim());
     assertThat(postDate).isEqualTo(jobData.getPostDate());
   }
 }
