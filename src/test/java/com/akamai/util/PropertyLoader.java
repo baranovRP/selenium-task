@@ -8,9 +8,9 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
- * Initial boilerplate based on @see https://github.com/barancev/webdriver-testng-archetype
- * with exception handlers from baranov.r.p
  * Class that extracts properties from the prop file.
+ * Based on @see https://github.com/barancev/webdriver-testng-archetype
+ * with exception handlers from baranov.r.p
  */
 public class PropertyLoader {
 
