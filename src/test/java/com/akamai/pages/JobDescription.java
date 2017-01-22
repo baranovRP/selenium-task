@@ -8,13 +8,13 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 /**
  * @author baranov.r.p
  */
-public class VacancyContent extends Page {
+public class JobDescription extends Page {
 
   private static final String CONTENT = ".full_content";
   private static final String POST_DATE = CONTENT + " .job_post_date .field_value";
 
 
-  public VacancyContent(WebDriver webDriver) {
+  public JobDescription(WebDriver webDriver) {
     super(webDriver);
   }
 

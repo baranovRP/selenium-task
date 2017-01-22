@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.akamai.pages.Page;
-import com.akamai.pages.VacancyContent;
+import com.akamai.pages.JobDescription;
 
 import static org.openqa.selenium.By.cssSelector;
 import static org.openqa.selenium.By.linkText;
@@ -74,21 +74,21 @@ public class SearchResults extends Page {
    * @param text in link
    * @return
    */
-  public VacancyContent openJobByLinkText(String text) {
+  public JobDescription openJobByLinkText(String text) {
     wait.until(elementToBeClickable(linkText(text))).click();
-    return new VacancyContent(driver);
+    return new JobDescription(driver);
   }
 
-  public VacancyContent openFirstJobByTitle(String text) {
+  public JobDescription openFirstJobByTitle(String text) {
     return openJobByTitle(text, FIRST_EL);
   }
 
-  public VacancyContent openJobByTitle(String text, int order) {
+  public JobDescription openJobByTitle(String text, int order) {
     WebElement linkEl = findAllJobElsOnPage().stream()
       .map(el -> el.findElement(cssSelector("a")))
       .filter(el -> el.getText().trim().toLowerCase().contains(text.toLowerCase()))
       .collect(Collectors.toList()).get(order);
     wait.until(elementToBeClickable(linkEl)).click();
-    return new VacancyContent(driver);
+    return new JobDescription(driver);
   }
 }

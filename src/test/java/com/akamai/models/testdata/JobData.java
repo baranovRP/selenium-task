@@ -8,16 +8,16 @@ import static com.akamai.util.DateTimeUtils.parseToDate;
 /**
  * @author baranov.r.p
  */
-public class VacancyData {
+public class JobData {
   private String title;
   private LocalDate postDate;
 
-  public VacancyData(String title, LocalDate postDate) {
+  public JobData(String title, LocalDate postDate) {
     this.title = title;
     this.postDate = postDate;
   }
 
-  public VacancyData(String title, String date) {
+  public JobData(String title, String date) {
     this.title = title;
     setPostDate(date);
   }
@@ -45,8 +45,8 @@ public class VacancyData {
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
-    if (!(o instanceof VacancyData)) return false;
-    VacancyData that = (VacancyData) o;
+    if (!(o instanceof JobData)) return false;
+    JobData that = (JobData) o;
     return Objects.equals(getTitle(), that.getTitle()) &&
       Objects.equals(getPostDate(), that.getPostDate());
   }

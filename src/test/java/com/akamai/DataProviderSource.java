@@ -3,7 +3,7 @@ package com.akamai;
 import org.testng.annotations.DataProvider;
 
 import com.akamai.models.testdata.SearchData;
-import com.akamai.models.testdata.VacancyData;
+import com.akamai.models.testdata.JobData;
 
 /**
  * @author baranov.r.p
@@ -15,7 +15,7 @@ public class DataProviderSource {
       {new SearchData("test", "Krakow", 11,
         "Software Development Engineer in Test",
         4),
-        new VacancyData("Senior Software Development Engineer in Test - LUNA",
+        new JobData("Senior Software Development Engineer in Test - LUNA",
           ("Dec 06, 2016"))
       }
     };

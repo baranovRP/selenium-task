@@ -10,9 +10,9 @@ import org.testng.annotations.Test;
 
 import com.akamai.components.SearchResults;
 import com.akamai.models.testdata.SearchData;
-import com.akamai.models.testdata.VacancyData;
+import com.akamai.models.testdata.JobData;
 import com.akamai.pages.JobSearch;
-import com.akamai.pages.VacancyContent;
+import com.akamai.pages.JobDescription;
 
 import static com.akamai.util.DateTimeUtils.parseToDate;
 import static java.lang.Integer.parseInt;
@@ -28,10 +28,10 @@ public class JobSearchTest extends TestNgTestBase {
   }
 
   @Test(dataProvider = "jobSearch", dataProviderClass = DataProviderSource.class)
-  public void testJobSearch(SearchData searchData, VacancyData vacancyData) {
+  public void testJobSearch(SearchData searchData, JobData jobData) {
     openPage(baseUrl);
     searchJob(searchData);
-    openVacancy(vacancyData);
+    openVacancy(jobData);
   }
 
   private void openPage(String url) {
@@ -48,10 +48,10 @@ public class JobSearchTest extends TestNgTestBase {
     assertThat(jobTitles).hasSize(searchData.getMatchedResults());
   }
 
-  private void openVacancy(VacancyData vacancyData) {
-    VacancyContent vacancy = homePage.searchResults()
-      .openFirstJobByTitle(vacancyData.getTitle());
+  private void openVacancy(JobData jobData) {
+    JobDescription vacancy = homePage.searchResults()
+      .openFirstJobByTitle(jobData.getTitle());
     LocalDate postDate = parseToDate(vacancy.getPostDate().trim());
-    assertThat(postDate).isEqualTo(vacancyData.getPostDate());
+    assertThat(postDate).isEqualTo(jobData.getPostDate());
   }
 }
