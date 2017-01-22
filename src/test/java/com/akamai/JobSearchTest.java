@@ -41,16 +41,16 @@ public class JobSearchTest extends TestNgTestBase {
   private void searchJob(SearchData searchData) {
     SearchResults results = homePage.searchPanel()
       .searchFor(searchData.getKeyword(), searchData.getLocation());
-    int totalResults = parseInt(results.getNumberOfResults().trim());
-    List<String> roles = results.getRoleTitlesContains(searchData.getTitle());
+    int totalResults = parseInt(results.findTotalResults().trim());
+    List<String> jobTitles = results.findJobTitlesContains(searchData.getTitle());
 
     assertThat(totalResults).isEqualTo(searchData.getTotalResults());
-    assertThat(roles).hasSize(searchData.getMatchedResults());
+    assertThat(jobTitles).hasSize(searchData.getMatchedResults());
   }
 
   private void openVacancy(VacancyData vacancyData) {
     VacancyContent vacancy = homePage.searchResults()
-      .openFirstVacancyByTitle(vacancyData.getTitle());
+      .openFirstJobByTitle(vacancyData.getTitle());
     LocalDate postDate = parseToDate(vacancy.getPostDate().trim());
     assertThat(postDate).isEqualTo(vacancyData.getPostDate());
   }
